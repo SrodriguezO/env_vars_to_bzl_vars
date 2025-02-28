@@ -1,1 +1,0 @@
-workspace(name = "env_vars_to_bzl_vars")
