@@ -4,7 +4,7 @@ def _impl(repository_ctx):
   env_vars = repository_ctx.attr.env_vars
   bzl_vars = ""
   for env_var in env_vars:
-    bzl_var = repository_ctx.execute(["printenv", env_var]).stdout.rstrip()
+    bzl_var = repository_ctx.getenv(env_var)
     bzl_vars = bzl_vars + "\n{} = \"{}\"".format(env_var, bzl_var)
 
   repository_ctx.file("env_vars.bzl", bzl_vars)
